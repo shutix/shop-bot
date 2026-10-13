@@ -32,8 +32,9 @@ CRYPTO_API_URL = "https://pay.crypt.bot/api/"
 #   🗄️  БАЗА ДАННЫХ
 # ============================================================
 
-conn = sqlite3.connect('shop.db', check_same_thread=False)
-cursor = conn.cursor()
+import os
+DB_PATH = os.environ.get("DB_PATH", "/tmp/shop.db")
+conn = sqlite3.connect(DB_PATH, check_same_thread=False)
 
 cursor.execute('''
 CREATE TABLE IF NOT EXISTS users (
