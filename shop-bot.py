@@ -12,10 +12,10 @@ import requests
 #   🔑  НАСТРОЙКИ
 # ============================================================
 
-TOKEN = "8969348872:AAE9znhBdcZkcrI7QfavABCxb_2qVQ8R8jc"
-CRYPTO_TOKEN = "648558:AAfwnPduqaTrY9GMIHBhHudGQo8zVMjKyWB"
-# список админов #
-ADMIN_IDS = [5566395763, 1693888453]
+import os
+TOKEN = os.environ.get("TOKEN")
+CRYPTO_TOKEN = os.environ.get("CRYPTO_TOKEN")
+ADMIN_IDS = [int(x) for x in os.environ.get("ADMIN_IDS", "").split(",") if x]
 # курс USDT и установка прайса
 USDT_TO_RUB = 83.83
 RATE_UPDATE_INTERVAL = 3600
